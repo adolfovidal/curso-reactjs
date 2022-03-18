@@ -1,21 +1,48 @@
+import { useState } from 'react'
+
+
 function Form() {
 
-    function cadastrarUsuario(e) {
+    function registerUser(e) {
         e.preventDefault()
-        // window.alert("Cadastrou o usuário!")
-        console.log("Cadastrou o usuário!")
+        /*  
+        window.alert("Registered the user!")
+        console.log(name)
+        console.log("Registered the user!") 
+        */
+       console.log(`The user ${name} has been registered with the password: ${password}`) // Poste para o backend (banco de dados)
     }
 
+    const[name, setName] = useState('Paula')
+    const[password, setPassword] = useState()
 
     return (
         <div>
-            <h1>Meu cadastro</h1>
-            <form onSubmit={cadastrarUsuario}> 
+            <h1>Register</h1>
+            <form onSubmit={registerUser}> 
                 <div>
-                    <input type="text" placeholder="Digite o seu nome"/>
+                    <label htmlFor="name">Name:</label>
+                    <input 
+                    type="text" 
+                    id="name" 
+                    name="name" 
+                    placeholder="Type your name" 
+                    // value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    />
                 </div>
                 <div>
-                    <input type="submit" value="Cadastrar" />
+                    <label htmlFor="password">Passw:</label>
+                    <input 
+                    type="password" 
+                    id="password" 
+                    name="password" 
+                    placeholder="Enter your password"
+                    onChange={(e) => setPassword(e.target.value)} 
+                    />
+                </div>
+                <div>
+                    <input type="submit" value="register" />
                 </div>
             </form>
         </div>

@@ -1,13 +1,13 @@
-function Evento({numero}) {
+function Evento({number}) {
 
-    function meuEvento() {
-        console.log(`Opa, fui ativado! ${numero}`)
+    function myEvent() {
+        console.log(`Opa, fui ativado! ${number}`)
     }
 
     return (
         <div>
             <p>Clique para disparar o evento:</p>
-            <button onClick={meuEvento}>Ativar!</button>
+            <button onClick={myEvent}>Ativar!</button>
         </div>
     )
 }
